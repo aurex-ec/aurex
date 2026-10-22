@@ -22,7 +22,121 @@
 @media(min-width:701px) and (max-width:1000px){.header .emblem{width:57px;height:75px}.header .brand-name{font-size:34px}.header .tagline{font-size:6.5px}.nav{gap:12px;font-size:10px}}
 @media(max-width:700px){.header-inner{min-height:101px}.header .emblem{width:47px;height:65px}.header .brand-name{font-size:31px}.header .tagline{font-size:6px}.draft-indicator{top:101px}html{scroll-padding-top:121px}}
 @media(max-width:360px){.header .brand-name{font-size:27px}.header .emblem{width:40px;height:58px}.header .tagline{font-size:5.5px}.header-inner{gap:5px}.bag{padding:8px 3px;gap:6px}}
-.catalog-management{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:20px 0}.catalog-management a{border:1px solid var(--navy);padding:12px 18px;font-size:11px;font-weight:600}.catalog-management p{margin:0;font-size:11px;color:#536073}.edit-card{display:block;width:100%;margin-top:10px;background:var(--gold);color:var(--navy);padding:12px;border:0;font-size:11px;font-weight:700}.edit-card:hover{background:var(--ivory)}.gender-switch{display:flex;gap:0;border-bottom:1px solid #071b3a25;margin:30px 0 12px}.gender-switch button{background:none;border:0;border-bottom:3px solid transparent;padding:18px 35px;font:22px Cinzel,serif;color:#536073;letter-spacing:.08em}.gender-switch button[aria-pressed=true]{color:var(--navy);border-bottom-color:var(--gold)}.gender-switch span{font:9px "Plus Jakarta Sans",sans-serif;color:#8b7a62;vertical-align:super;margin-left:10px}.collection-reference{font-size:10px;color:#6c7684;line-height:1.7}.product-image img{object-fit:contain}.catalog{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:700px){.gender-switch button{padding:16px 23px;font-size:19px}.catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}.packaging-option{display:flex;align-items:center;gap:12px;padding:16px;border:1px solid #e8bc7c55;margin:18px 0 22px;cursor:pointer;font-size:12px;line-height:1.6}.packaging-option input{width:19px;height:19px;accent-color:var(--gold);flex:none;cursor:pointer}.packaging-option small{display:block;font-size:10px;color:#f4e2c2aa}.packaging-option:has(input:disabled){opacity:.5;cursor:default}.packaging-option input:disabled{cursor:default}#packaging-row[hidden]{display:none}</style>
+.catalog-management{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:20px 0}.catalog-management a{border:1px solid var(--navy);padding:12px 18px;font-size:11px;font-weight:600}.catalog-management p{margin:0;font-size:11px;color:#536073}.edit-card{display:block;width:100%;margin-top:10px;background:var(--gold);color:var(--navy);padding:12px;border:0;font-size:11px;font-weight:700}.edit-card:hover{background:var(--ivory)}.gender-switch{display:flex;gap:0;border-bottom:1px solid #071b3a25;margin:30px 0 12px}.gender-switch button{background:none;border:0;border-bottom:3px solid transparent;padding:18px 35px;font:22px Cinzel,serif;color:#536073;letter-spacing:.08em}.gender-switch button[aria-pressed=true]{color:var(--navy);border-bottom-color:var(--gold)}.gender-switch span{font:9px "Plus Jakarta Sans",sans-serif;color:#8b7a62;vertical-align:super;margin-left:10px}.collection-reference{font-size:10px;color:#6c7684;line-height:1.7}.product-image img{object-fit:contain}.catalog{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:700px){.gender-switch button{padding:16px 23px;font-size:19px}.catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}.packaging-option{display:flex;align-items:center;gap:12px;padding:16px;border:1px solid #e8bc7c55;margin:18px 0 22px;cursor:pointer;font-size:12px;line-height:1.6}.packaging-option input{width:19px;height:19px;accent-color:var(--gold);flex:none;cursor:pointer}.packaging-option small{display:block;font-size:10px;color:#f4e2c2aa}.packaging-option:has(input:disabled){opacity:.5;cursor:default}.packaging-option input:disabled{cursor:default}#packaging-row[hidden]{display:none}
+/* Distribución adaptable: contenido legible y controles sin superposición. */
+.product,.product-info,.header-inner>* ,.footer-grid>div,.admin-layout>div,.admin-layout form{min-width:0}
+.product h3,.cart-item h3,.contact-line,.admin-row strong,#admin-account{overflow-wrap:anywhere}
+.topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 12px;line-height:1.8}
+.topbar-contact{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px}
+.topbar-contact a{white-space:nowrap}
+.panel-body{min-height:0;scroll-padding-bottom:24px}
+.cart-item>div{min-width:0}
+.total-row{gap:16px;align-items:baseline;flex-wrap:wrap}
+.total-row>span:last-child,.total-row>strong{text-align:right;margin-left:auto}
+.admin-row>div{min-width:0;overflow-wrap:anywhere}
+.admin-controls{align-items:center}
+.admin-controls button,.admin-controls a,.admin-row button{min-height:44px}
+.header .brand-name{white-space:nowrap}
+@media(max-width:900px){.nav{display:none}}
+@media(max-width:700px){
+ html{scroll-padding-top:110px}
+ .topbar{padding:9px 12px;font-size:10px;gap:3px 14px;letter-spacing:0}
+ .topbar-shipping{flex-basis:100%;font-size:9px}
+ .topbar-separator{display:none}
+ .topbar-contact{line-height:1.9}
+ .header-inner{min-height:90px;gap:8px}
+ .header .brand{flex-shrink:1}
+ .bag{flex-shrink:0;min-height:44px;padding:8px 0;gap:7px}
+ .draft-indicator{top:90px;font-size:10px;line-height:1.7;padding:8px 12px}
+ .hero{min-height:590px}
+ .hero-content{padding:105px 0 48px;width:100%}
+ .hero h1{font-size:clamp(28px,8.2vw,38px);line-height:1.25;letter-spacing:-.025em;max-width:100%;overflow-wrap:normal}
+ .hero .eyebrow{line-height:1.8;letter-spacing:.18em;gap:10px}
+ .hero .eyebrow:before{width:24px;flex-shrink:0}
+ .hero-copy{font-size:13px;line-height:1.9}
+ .actions{display:grid;grid-template-columns:1fr;max-width:360px}
+ .actions .btn{width:100%;min-height:48px;font-size:11px}
+ .hero-note{flex-wrap:wrap;gap:10px 18px;line-height:1.8}
+ .collection{padding:42px 0}
+ .section-top h2{font-size:29px;line-height:1.4}
+ .gender-switch button{flex:1;min-width:0;padding:16px 10px;font-size:18px}
+ .gender-switch span{margin-left:5px}
+ .filters{max-width:100%;padding-bottom:20px}
+ .filter{flex-shrink:0;min-height:44px;font-size:11px}
+ .catalog{gap:28px 16px}
+ .product h3{font-size:13px;line-height:1.6;min-height:42px}
+ .product-brand{font-size:9px}
+ .price{font-size:14px}
+ .badge{font-size:9px;max-width:calc(100% - 16px);overflow-wrap:anywhere}
+ .sizes{gap:6px;flex-wrap:wrap}
+ .size{width:40px;min-height:44px;font-size:12px}
+ .add{min-height:48px;font-size:10px;line-height:1.5;padding:12px 8px}
+ .catalog-management a{width:100%;text-align:center;min-height:44px;line-height:1.7}
+ .guarantee h2{font-size:27px}
+ .footer-grid{grid-template-columns:1fr;gap:30px}
+ .footer-grid>div:first-child{grid-column:auto}
+ .footer-links,.contact-line{font-size:13px}
+ .footer-links a,.footer-links button{min-height:36px;display:flex;align-items:center}
+ .copyright{padding-bottom:0;font-size:10px;line-height:1.8}
+ .concierge{position:static;inset:auto;width:100%;margin:0;justify-content:center;padding:18px 20px;font-size:13px;min-height:52px;box-shadow:none;border-width:1px 0 0}
+ .panel{width:100%;height:100%;height:100dvh;max-height:100%;padding-bottom:env(safe-area-inset-bottom)}
+ .panel-header{padding:16px;flex-shrink:0;gap:12px}
+ .panel-header h2{font-size:23px}
+ .close{min-width:44px;min-height:44px;padding:4px}
+ .panel-body{padding:20px 16px max(24px,env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}
+ .cart-item{grid-template-columns:56px minmax(0,1fr);gap:10px 12px}
+ .cart-item img{width:56px;height:76px;grid-row:1/3}
+ .cart-item>div:last-child{grid-column:2;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+ .cart-item h3{font-size:13px;line-height:1.6}
+ .cart-detail{font-size:12px;line-height:1.7}
+ .quantity button{width:44px;height:44px;font-size:18px}
+ .quantity span{min-width:28px;font-size:13px}
+ .remove{min-height:44px;font-size:12px;margin:0 0 0 auto;padding:8px 0}
+ .total-row.total{font-size:18px;line-height:1.6;gap:8px 14px}
+ .shipping-note{font-size:12px;line-height:1.8}
+ .packaging-option{padding:14px;gap:10px;font-size:13px}
+ .packaging-option small{font-size:11px}
+ .field{font-size:13px;line-height:1.7}
+ .field input,.field select,.field textarea{font-size:16px;min-height:48px;max-width:100%;line-height:1.5;padding:12px}
+ .field textarea{min-height:100px}
+ .checkout .btn{font-size:11px;line-height:1.7;white-space:normal}
+ .admin-panel{padding:20px 16px}
+ .admin-panel h2{font-size:25px;line-height:1.5}
+ .admin-layout{grid-template-columns:minmax(0,1fr);gap:28px}
+ .admin-controls{gap:10px}
+ #admin-account{flex-basis:100%;font-size:13px}
+ .admin-controls button,.admin-controls a{flex:1 1 120px;text-align:center;font-size:12px;line-height:1.6}
+ .admin-row{display:grid;grid-template-columns:45px minmax(0,1fr);gap:10px 12px;align-items:start}
+ .admin-row button{width:100%;font-size:12px}
+ .admin-row button[data-edit]{grid-column:1/2}
+ .admin-row button[data-delete]{grid-column:2/3}
+ .admin-sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .admin-sizes label{min-height:44px;gap:8px}
+ .admin-panel .admin-sizes input{min-height:0;width:20px;height:20px}
+ .admin-panel input[type=file]{font-size:12px;padding:10px 5px}
+ .toast{bottom:max(16px,env(safe-area-inset-bottom));max-width:calc(100% - 24px);font-size:12px;line-height:1.7;padding:12px 16px}
+}
+@media(max-width:479px){
+ .catalog{grid-template-columns:minmax(0,1fr)}
+ .product-image{aspect-ratio:4/4.5}
+ .product h3{min-height:0;font-size:15px}
+ .product-info{padding-top:16px}
+ .sizes{gap:10px}
+ .size{width:44px}
+ .add{font-size:11px}
+}
+@media(max-width:340px){
+ .header .brand-name{font-size:25px;letter-spacing:.15em}
+ .header .emblem{width:36px;height:52px}
+ .header .tagline{font-size:5px;letter-spacing:.17em}
+ .header .brand{gap:7px}
+ .header .icon{width:19px;height:19px}
+ .bag{gap:5px}
+ .topbar-contact{font-size:9px}
+ .hero h1{font-size:27px}
+}
+
+</style>
 </head>
 <body>
 <a class="skip" href="#coleccion">Saltar a la colección</a>
@@ -31,7 +145,7 @@
 <symbol id="bag-icon" viewBox="0 0 24 24"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></symbol>
 <symbol id="wa" viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.6-4.8a8.5 8.5 0 1 1 15.9-4.2Z"/><path d="M8 7.5c-2 2 3.5 8 6 7l1.5-1.5-3-1-1 1c-1-.6-2-1.6-2.5-2.5l1-1-1-2Z"/></symbol>
 </defs></svg>
-<div class="topbar">Envíos asegurados a todo el Ecuador vía Servientrega &amp; LaarCourier <span aria-hidden="true"> • </span> Pedidos: <a href="https://wa.me/593987597604" target="_blank" rel="noopener noreferrer">+593 98 759 7604</a> <span aria-hidden="true"> • </span> Atención al cliente: <a href="https://wa.me/593999248381" target="_blank" rel="noopener noreferrer">+593 99 924 8381</a></div>
+<div class="topbar"><span class="topbar-shipping">Envíos asegurados a todo el Ecuador vía Servientrega &amp; LaarCourier</span><span class="topbar-separator" aria-hidden="true">•</span><span class="topbar-contact">Pedidos: <a href="https://wa.me/593987597604" target="_blank" rel="noopener noreferrer">+593 98 759 7604</a></span><span class="topbar-separator" aria-hidden="true">•</span><span class="topbar-contact">Atención al cliente: <a href="https://wa.me/593999248381" target="_blank" rel="noopener noreferrer">+593 99 924 8381</a></span></div>
 <header class="header"><div class="wrap header-inner"><a href="#inicio" class="brand" aria-label="Aurex, inicio"><svg class="emblem" aria-hidden="true"><use href="#crest"/></svg><span><span class="brand-name">AUREX</span><span class="tagline">L'ELEGANZA SENZA TEMPO</span></span></a><nav class="nav" aria-label="Navegación principal"><a href="#coleccion">Colección</a><a href="#filosofia">Filosofía</a><a href="#garantia">Garantía VIP</a><a href="#contacto">Contacto</a></nav><button class="bag" id="open-cart" aria-label="Abrir bolsa, 0 prendas" aria-haspopup="dialog"><svg class="icon"><use href="#bag-icon"/></svg><span class="bag-label">Mi bolsa</span><span class="count" id="cart-count">0</span></button></div></header>
 <div class="draft-indicator" id="draft-indicator" hidden>ADMINISTRADOR CONECTADO · Guarda cada producto para publicarlo en la tienda.</div><main id="inicio">
 <section class="hero" aria-labelledby="hero-title"><img class="hero-photo" src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&amp;fit=crop&amp;w=1600&amp;q=85" alt="Estilo masculino de sastrería en tonos neutros" fetchpriority="high"><div class="wrap"><div class="hero-content"><div class="eyebrow">El arte de vestir con carácter</div><h1 id="hero-title">DISTINCIÓN QUE<br>TRASCIENDE<br><em>EL TIEMPO.</em></h1><p class="hero-copy">El lujo no necesita anunciarse. Descubre AUREX para hombre y mujer: camisas de lino, tejidos trenzados y piezas que trascienden las temporadas.</p><div class="actions"><a href="#coleccion" class="btn btn-gold">EXPLORAR COLECCIÓN <span aria-hidden="true">↗</span></a><a class="btn btn-outline support" href="https://wa.me/593999248381?text=%C2%A1Hola%20Aurex!%20Deseo%20atenci%C3%B3n%20personalizada%20sobre%20las%20colecciones" target="_blank" rel="noopener noreferrer">Habla con nosotros <span aria-hidden="true">↗</span></a></div><div class="hero-note"><span>SELECCIÓN EXCLUSIVA</span><span>ENTREGAS EN ECUADOR</span></div></div></div><div class="hero-index">AUREX / HOMBRE &amp; MUJER</div></section>
