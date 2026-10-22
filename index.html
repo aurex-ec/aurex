@@ -140,6 +140,23 @@
 .product-image.photo-pair{aspect-ratio:550/669}.photo-crop{position:absolute;inset:0;overflow:hidden}.product-image.photo-pair .paired-source{position:absolute;top:0;left:0;width:200%;max-width:none;height:100%;object-fit:fill;transform:none}.product-image.photo-pair[data-view="back"] .paired-source{left:-100%}.product:hover .photo-pair .paired-source{transform:none}.photo-pair.single-photo .paired-source{width:100%;left:0;object-fit:contain}.photo-controls{display:flex;gap:8px;margin-top:10px}.photo-controls[hidden]{display:none}.photo-controls button{flex:1;min-height:44px;padding:10px 8px;border:1px solid #071b3a40;background:transparent;color:var(--navy);font-size:12px}.photo-controls button[aria-pressed="true"]{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
 
 .product-image.photo-gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:none}.product:hover .photo-gallery img{transform:none}.photo-gallery[data-view="front"] .gallery-back,.photo-gallery[data-view="back"] .gallery-front{display:none}
+
+/* Marcos y líneas de información iguales en toda la colección. */
+.catalog .product{display:flex;flex-direction:column;min-width:0}
+.catalog .product-image{aspect-ratio:3/4;width:100%;flex-shrink:0}
+.catalog .product-image img{object-fit:contain;object-position:center;transform:none}
+.catalog .product:hover img{transform:none}
+.catalog .photo-pair .paired-source{object-fit:contain}
+.catalog .photo-controls,.catalog .photo-controls-placeholder{height:44px;min-height:44px;margin-top:10px;flex-shrink:0}
+.catalog .photo-controls button{height:44px;min-width:0;line-height:1.3}
+.catalog .product-info{display:flex;flex-direction:column;flex:1;min-width:0}
+.catalog .product h3{line-height:1.6;min-height:3.2em}
+.catalog .product .price{min-height:24px;line-height:1.6}
+.catalog .sizes{min-height:30px}
+.catalog .product-info .add{margin-top:auto;min-height:44px}
+@media(max-width:700px){.catalog .sizes{min-height:44px}.catalog .product-info .add{min-height:48px}}
+@media(max-width:479px){.catalog .product h3{min-height:0}}
+
 </style>
 </head>
 <body>
@@ -207,7 +224,7 @@ function toast(message){$('#toast').textContent=message;$('#toast').classList.ad
 // Ambas vistas usan la fotografía original: cada cuadro muestra una mitad.
 const selectedPhotoViews=new Map();
 function renderOriginalProductImage(p){
- if(p.id!==101)return `<div class="product-image"><img src="${escapeHTML(photo(p))}" alt="${escapeHTML(p.name)}" loading="lazy" decoding="async" width="600" height="760"><span class="badge">${escapeHTML(p.badge)}</span></div>`;
+ if(p.id!==101)return `<div class="product-image"><img src="${escapeHTML(photo(p))}" alt="${escapeHTML(p.name)}" loading="lazy" decoding="async" width="600" height="760"><span class="badge">${escapeHTML(p.badge)}</span></div><div class="photo-controls-placeholder" aria-hidden="true"></div>`;
  const view=selectedPhotoViews.get(p.id)||'front';
  return `<div class="product-image photo-pair" data-photo-pair="${p.id}" data-view="${view}"><div class="photo-crop"><img class="paired-source" src="${escapeHTML(photo(p))}" alt="${escapeHTML(p.name)} — ${view==='front'?'frente':'espalda'}" loading="lazy" decoding="async" width="1100" height="669"></div><span class="badge">${escapeHTML(p.badge)}</span></div><div class="photo-controls" role="group" aria-label="Fotos de ${escapeHTML(p.name)}"><button type="button" data-photo-view="front" aria-label="Foto 1: frente" aria-pressed="${view==='front'}">1 · Frente</button><button type="button" data-photo-view="back" aria-label="Foto 2: espalda" aria-pressed="${view==='back'}">2 · Espalda</button></div>`;
 }
@@ -219,7 +236,7 @@ function renderProductImage(p){
 
 function preparePhotoGallery(){
  document.querySelectorAll('.photo-pair img').forEach(img=>{
-  const setup=()=>{const box=img.closest('.photo-pair');const paired=img.naturalWidth/img.naturalHeight>1.45;box.classList.toggle('single-photo',!paired);box.nextElementSibling.hidden=!paired;if(paired)box.style.aspectRatio=(img.naturalWidth/2)+' / '+img.naturalHeight;};
+  const setup=()=>{const box=img.closest('.photo-pair');const paired=img.naturalWidth/img.naturalHeight>1.45;box.classList.toggle('single-photo',!paired);box.nextElementSibling.hidden=!paired;box.style.removeProperty('aspect-ratio');};
   if(img.complete&&img.naturalWidth)setup();else img.addEventListener('load',setup,{once:true});
  });
 }
