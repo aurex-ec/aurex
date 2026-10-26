@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AUREX — Catálogo de temporada 2026</title>
+<meta name="theme-color" content="#071B3A">
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#0D2548;color:#F4E2C2;font-family:Arial,sans-serif}header{background:#071B3A;border-bottom:1px solid #E8BC7C55;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font:28px Georgia,serif;letter-spacing:.2em;color:#E8BC7C}header p{font-size:11px;margin:7px 0 0}a{color:#F4E2C2;text-decoration:none}header a{font-size:13px;padding:12px;border:1px solid #F4E2C255}nav{position:sticky;top:0;z-index:2;background:#071B3Af5;display:flex;justify-content:center;align-items:center;gap:14px;padding:12px;flex-wrap:wrap}button,select{font:inherit;min-height:44px;background:#E8BC7C;border:1px solid #E8BC7C;color:#071B3A;padding:10px 16px;cursor:pointer}button:disabled{opacity:.4;cursor:default}select{background:#0D2548;color:#F4E2C2;max-width:100%;font-size:16px}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #F4E2C2;outline-offset:3px}main{max-width:1100px;margin:20px auto;padding:0 16px 24px}figure{margin:0;background:#FAF7F2;min-height:240px;box-shadow:0 12px 40px #0003}img{display:block;width:100%;height:auto}figcaption{text-align:center;color:#071B3A;padding:12px;font-size:12px}#status{text-align:center;font-size:13px;min-height:18px;margin:12px}#retry{display:block;margin:12px auto}#retry[hidden]{display:none}.hint{text-align:center;font-size:12px;padding:0 16px 20px;color:#F4E2C2bb}@media(max-width:480px){header{padding:16px}.brand{font-size:23px}header a{font-size:11px}nav{gap:8px;padding:10px}button{font-size:12px;padding:10px}main{padding:0 8px;margin-top:12px}select{padding:10px 6px}}
+</style></head>
+<body>
+<header><div><div class="brand">AUREX</div><p>CATÁLOGO DE TEMPORADA 2026</p></div><a href="./#coleccion">← Volver a la tienda</a></header>
+<nav aria-label="Páginas del catálogo"><button id="previous" type="button">← Anterior</button><label for="page" class="sr-only" hidden>Página</label><select id="page" aria-label="Elegir página"></select><button id="next" type="button">Siguiente →</button></nav>
+<main><p id="status" role="status" aria-live="polite">Cargando catálogo…</p><button id="retry" type="button" hidden>Volver a cargar la página</button><figure><img id="catalog-page" alt="" width="1072" height="1516" decoding="async"><figcaption id="caption"></figcaption></figure></main>
+<p class="hint">Usa Anterior y Siguiente para recorrer el catálogo. En celular puedes ampliar con dos dedos.</p>
+<noscript><p class="hint">Activa JavaScript para recorrer las 28 páginas del catálogo.</p></noscript>
+<script>
+'use strict';
+const total=28,select=document.getElementById('page'),image=document.getElementById('catalog-page'),previous=document.getElementById('previous'),next=document.getElementById('next'),status=document.getElementById('status'),retry=document.getElementById('retry');
+for(let n=1;n<=total;n++){const option=document.createElement('option');option.value=n;option.textContent=`Página ${n} de ${total}`;select.append(option)}
+let current=1;const source=n=>`catalogo-2026-${String(n).padStart(2,'0')}.jpg`;
+function show(n,update=true){current=Math.min(total,Math.max(1,n));select.value=String(current);previous.disabled=current===1;next.disabled=current===total;retry.hidden=true;status.textContent='Cargando página…';image.alt=`Catálogo AUREX 2026 — página ${current} de ${total}`;document.getElementById('caption').textContent=`AUREX · Página ${current} de ${total}`;image.src=source(current);if(update)history.replaceState(null,'',`#pagina-${current}`)}
+image.addEventListener('load',()=>{status.textContent='';if(current<total){const preload=new Image();preload.src=source(current+1)}});
+image.addEventListener('error',()=>{status.textContent='No se pudo cargar esta página. Revisa tu conexión e inténtalo de nuevo.';retry.hidden=false});
+retry.addEventListener('click',()=>show(current));previous.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>show(current+1));select.addEventListener('change',()=>show(Number(select.value)));
+document.addEventListener('keydown',event=>{if(event.target.tagName==='SELECT')return;if(event.key==='ArrowRight'){event.preventDefault();show(current+1)}if(event.key==='ArrowLeft'){event.preventDefault();show(current-1)}});
+const match=location.hash.match(/^#pagina-(\d+)$/);show(match?Number(match[1]):1,false);
+</script></body></html>
